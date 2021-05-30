@@ -24,14 +24,14 @@ app.get('/users/:id',function(req,res){
     user: req.param.id
   })
 })
-
+// Typically passwords are encrypted using something like bcrypt before sending to database
 app.post('/login',function(req,res){
   const username=req.body.username;
   const password=req.body.password;
 
   const mockUsername="billyTheKid";
   const mockPassword="superSecret";
-
+// In practice, use JSON web token sign method here to make an encrypted token
   if (username===mockUsername && password===mockPassword){
     res.json({
       success: true,
